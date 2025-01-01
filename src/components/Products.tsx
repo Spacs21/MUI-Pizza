@@ -1,10 +1,17 @@
 import axios from "axios";
-import React from "react";
 import { useEffect, useState } from "react";
 import Rating from '@mui/material/Rating';
 
+interface Recipe {
+  id: number;
+  name: string;
+  image: string;
+  difficulty: string;
+  rating: number;
+}
+
 const Products = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Recipe[]>([]);
 
   useEffect(() => {
     axios
