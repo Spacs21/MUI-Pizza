@@ -178,8 +178,10 @@ export default function Header() {
           <Typography
             variant="h6"
             noWrap
-            component="div"
+            component={NavLink}
             sx={{ display: { xs: 'none', sm: 'block' } }}
+            className='cursor-pointer'
+            to={"/"}
           >
             Bekzod
           </Typography>
