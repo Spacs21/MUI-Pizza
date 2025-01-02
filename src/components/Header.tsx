@@ -17,6 +17,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
+import Dark from './Dark';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -57,7 +58,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Header() {
+interface DarkProps {
+  isDark: boolean;
+  toggle: () => void;
+}
+export default function Header({ isDark, toggle }:DarkProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
@@ -161,7 +166,7 @@ export default function Header() {
       <AppBar
         position="static"
         sx={{
-            background: 'linear-gradient(135deg, #121212 30%, #000000 90%)',
+            background: `${isDark ? 'linear-gradient(#100000, #000000 90%)' : 'bg-white'}`,
             boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)',
         }}
       >
@@ -238,6 +243,9 @@ export default function Header() {
             >
               Service
             </Button>
+            <div className='flex justify-center items-center'>
+              <Dark isDark={isDark} toggle={toggle}/>
+            </div>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <MailIcon />
