@@ -38,7 +38,7 @@ const Products = () => {
     <div className="container mx-auto">
       <div className="flex flex-wrap justify-evenly gap-6 p-6">
         {data.map((item: Recipe) => (
-        <div key={item.id} className="text-white flex flex-col rounded-lg w-[360px] bg-red-950 hover:shadow-lg hover:shadow-red-400 duration-300 ease-in">
+        <div key={item.id} className="text-white flex flex-col rounded-lg w-[360px] bg-[#6e1e1e63] hover:shadow-lg hover:shadow-red-400 duration-300 ease-in">
             <img src={item.image} className="h-[300px] rounded-lg object-cover"/>
             <div className="p-4">
                 <h2 className="text-2xl font-bold">{item.name}</h2>
